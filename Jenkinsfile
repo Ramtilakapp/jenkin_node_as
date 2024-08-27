@@ -29,7 +29,9 @@ pipeline {
                     sh 'rsync -avz -e "ssh -i /home/jenkins/id_ed25519" ${deployDir} ssm-user@10.0.4.172:/home/ssm-user/'
 
                     // Change ownership of remote directory
-                    sh 'ssh -i "/home/jenkins/id_ed25519" ssm-user@10.0.4.172 "sudo chown -R ssm-user:ssm-user /home/ssm-user/node-pipeline"'
+                    // sh 'ssh -i "/home/jenkins/id_ed25519" ssm-user@10.0.4.172 "sudo chown -R ssm-user:ssm-user /home/ssm-user/node-pipeline"'
+                    sh 'ssh -i "/home/jenkins/id_ed25519" ssm-user@10.0.4.172 "sudo mkdir -p /home/ssm-user/node-pipeline && sudo chown -R ssm-user:ssm-user /home/ssm-user/node-pipeline"'
+
 
                     // Restart PM2 process
                     sh 'ssh -i "/home/jenkins/id_ed25519" ssm-user@10.0.4.172 "pm2 stop /home/ssm-user/node-pipeline/app.js && pm2 start /home/ssm-user/node-pipeline/app.js"'
