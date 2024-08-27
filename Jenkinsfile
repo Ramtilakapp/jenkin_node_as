@@ -27,7 +27,7 @@ pipeline {
 
                     // Deploy to remote server using rsync
                     // sh 'rsync -avz -e "ssh -i /home/jenkins/id_ed25519" ${deployDir} ssm-user@10.0.4.172:/home/ssm-user/'
-                    sh 'scp -i /home/jenkins/id_ed25519 -r /home/jenkins/node-pipeline ssm-user@10.0.4.172://home/ssm-user/'
+                    sh 'scp -i /home/jenkins/id_ed25519 -r /home/jenkins/node-pipeline ssm-user@10.0.4.172:/home/ssm-user/'
 
                     // Change ownership of remote directory
                     // sh 'ssh -i "/home/jenkins/id_ed25519" ssm-user@10.0.4.172 "sudo chown -R ssm-user:ssm-user /home/ssm-user/node-pipeline"'
