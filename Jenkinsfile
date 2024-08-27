@@ -2,6 +2,14 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout Code') {
+            steps {
+                // Clone the repository into the workspace
+                git url: 'https://github.com/ashi-2212/node-pipeline.git', branch: 'master'
+            }
+        }
+
+    stages {
         stage('Deploy to Remote Server') {
             steps {
                 sh 'whoami'
