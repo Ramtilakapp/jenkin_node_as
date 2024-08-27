@@ -23,7 +23,7 @@ pipeline {
                     sh "rm -rf ${deployDir}"
 
                     // Copy files from workspace to /home/jenkins/node-pipeline
-                    sh "cp -r ${localDir} ${deployDir}"
+                    sh "cp -r ${localDir} /home/jenkins/"
 
                     // Deploy to remote server using rsync
                     sh 'rsync -avz -e "ssh -i /home/jenkins/id_ed25519" ${deployDir} ubuntu@16.16.187.59:/home/ubuntu/'
