@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 // Clone the repository into the workspace
-                git url: 'https://github.com/ashi-2212/node-pipeline.git', branch: 'main'
+                git url: 'https://github.com/ashi-2212/node-pipeline.git', branch: 'master'
             }
         }
 
