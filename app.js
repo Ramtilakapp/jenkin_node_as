@@ -3,7 +3,7 @@ const http = require('http');
 
 // Configure the HTTP server to respond with "Hello World" to all requests.
 const hostname = '0.0.0.0';
-const port = 3030;
+const port = 3000;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
