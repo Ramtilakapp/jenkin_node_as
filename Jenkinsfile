@@ -31,7 +31,7 @@ pipeline {
 
                     // Change ownership of remote directory
                     // sh 'ssh -i "/home/jenkins/id_ed25519" ssm-user@10.0.4.172 "sudo chown -R ssm-user:ssm-user /home/ssm-user/node-pipeline"'
-                    sh 'ssh -i "/home/jenkins/id_ed25519" ssm-user@10.0.4.172 "sudo mkdir -p /home/ssm-user/node-pipeline && sudo chown -R ssm-user:ssm-user /home/ssm-user/node-pipeline"'
+                    sh 'ssh -i "/home/jenkins/id_ed25519" ssm-user@10.0.4.172 "sudo chmod -R 777 /home/ssm-user/node-pipeline/.git/ && sudo chown -R ssm-user:ssm-user /home/ssm-user/node-pipeline"'
 
 
                     // Restart PM2 process
