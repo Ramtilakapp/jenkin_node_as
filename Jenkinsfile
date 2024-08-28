@@ -27,15 +27,15 @@ pipeline {
 
                     // Deploy to remote server using rsync
                     // sh 'rsync -avz -e "ssh -i /home/jenkins/.ssh/id_ed25519" ${deployDir} abcd@10.0.2.130:/home/ssm-user/'
-                    sh 'sudo scp -i /home/jenkins/.ssh/id_ed25519 -r /home/jenkins/node_jenkins_appli_as abcd@10.0.2.130://home/abcd/'
+                    sh 'scp -i /home/jenkins/.ssh/id_ed25519 -r /home/jenkins/node_jenkins_appli_as abcd@10.0.2.130://home/abcd/'
 
                     // Change ownership of remote directory
                     // sh 'ssh -i "/home/jenkins/id_ed25519" ssm-user@10.0.4.172 "sudo chown -R ssm-user:ssm-user /home/ssm-user/node-pipeline"'
-                    sh 'sudo ssh -i "/home/jenkins/id_ed25519" abcd@10.0.2.130 "sudo mkdir -p /home/abcd/node_jenkins_appli_as && sudo chmod -R 777 /home/abcd/node_jenkins_appli_as/.git/ && sudo chown -R abcd:abcd /home/abcd/node_jenkins_appli_as"'
+                    sh 'ssh -i "/home/jenkins/id_ed25519" abcd@10.0.2.130 "sudo mkdir -p /home/abcd/node_jenkins_appli_as && sudo chmod -R 777 /home/abcd/node_jenkins_appli_as/.git/ && sudo chown -R abcd:abcd /home/abcd/node_jenkins_appli_as"'
 
 
                     // Restart PM2 process
-                    sh 'sudo ssh -i "/home/jenkins/id_ed25519" abcd@10.0.2.130 "pm2 stop /home/abcd/node_jenkins_appli_as/app.js && pm2 start /home/abcd/node_jenkins_appli_as/app.js"'
+                    sh 'ssh -i "/home/jenkins/id_ed25519" abcd@10.0.2.130 "pm2 stop /home/abcd/node_jenkins_appli_as/app.js && pm2 start /home/abcd/node_jenkins_appli_as/app.js"'
                 }
             }
         }
