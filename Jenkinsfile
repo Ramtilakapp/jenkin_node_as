@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Deployment') {
             steps {
-                 sh 'rsync -avz -e "ssh -i /home/jenkins/.ssh/id_ed25519" /var/lib/jenkins/workspace/ abcd@10.0.2.130:/var/www/html'
+                 sh 'rsync -avz -e "ssh -i /home/jenkins/.ssh/id_ed25519" /var/lib/jenkins/workspace/node_jenkins_appli_as abcd@10.0.2.130:/var/www/html'
             }
         }
 
