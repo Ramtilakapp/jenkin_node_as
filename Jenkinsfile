@@ -35,7 +35,7 @@ pipeline {
 
 
                     // Restart PM2 process
-                    sh 'ssh -i "/home/jenkins/id_ed25519" abcd@10.0.2.130 "pm2 stop /home/abcd/node_jenkins_appli_as/app.js && pm2 start /home/abcd/node_jenkins_appli_as/app.js"'
+                    sh 'ssh -i "/home/jenkins/.ssh/id_ed25519" abcd@10.0.2.130 "pm2 stop /home/abcd/node_jenkins_appli_as/app.js && pm2 start /home/abcd/node_jenkins_appli_as/app.js"'
                 }
             }
         }
